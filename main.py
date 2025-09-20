@@ -2,7 +2,14 @@ import keyboard
 import random
 import time
 
-text = input("What is the text you would like to be typed? \n")
+
+default_text = "The quick brown fox jumps over the lazy dog"
+text = input("What is the text you would like to be typed (typing d will type the default text)? \n")
+if text == "d":
+    text = default_text
+else:
+    pass
+
 chance_of_error = 1/10
 letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
