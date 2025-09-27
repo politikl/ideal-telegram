@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ideal Telegram</title>
+    <title>Ideal Telegram - Human-like Typing Automation</title>
     <style>
         * {
             margin: 0;
@@ -499,34 +499,234 @@
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            header {
+                padding: 12px 0;
+            }
+
             .nav-links {
                 display: none;
             }
 
+            .logo {
+                font-size: 24px;
+            }
+
+            .hero {
+                min-height: 100vh;
+                padding: 80px 0 60px;
+            }
+
             .hero h1 {
                 font-size: 48px;
+                margin-bottom: 20px;
+                letter-spacing: -2px;
             }
 
             .hero .subtitle {
-                font-size: 20px;
+                font-size: 18px;
+                margin-bottom: 40px;
+                padding: 0 10px;
             }
 
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
+                gap: 16px;
+            }
+
+            .cta-button {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+                padding: 16px 24px;
+                font-size: 16px;
+            }
+
+            .demo-section {
+                padding: 60px 0;
             }
 
             .demo-container {
                 padding: 30px 20px;
+                margin: 0 16px;
+                border-radius: 12px;
             }
 
-            .features-grid {
-                grid-template-columns: 1fr;
+            .demo-text {
+                font-size: 16px;
+                line-height: 1.6;
+                min-height: 80px;
+            }
+
+            .stats {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 36px;
+                margin-bottom: 16px;
+            }
+
+            .section-subtitle {
+                font-size: 18px;
+                padding: 0 16px;
             }
 
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 40px;
+                gap: 30px;
+                margin-top: 40px;
+            }
+
+            .stat-number {
+                font-size: 42px;
+            }
+
+            .stat-label {
+                font-size: 14px;
+            }
+
+            .features {
+                padding: 80px 0;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                margin-top: 40px;
+            }
+
+            .feature-card {
+                padding: 30px 24px;
+                border-radius: 12px;
+            }
+
+            .feature-icon {
+                font-size: 42px;
+                margin-bottom: 20px;
+            }
+
+            .feature-card h3 {
+                font-size: 22px;
+                margin-bottom: 12px;
+            }
+
+            .feature-card p {
+                font-size: 15px;
+                line-height: 1.5;
+            }
+
+            .code-section {
+                padding: 80px 0;
+            }
+
+            .code-container {
+                margin: 40px 16px 0;
+                border-radius: 12px;
+            }
+
+            .code-header {
+                padding: 12px 20px;
+            }
+
+            .code-title {
+                font-size: 13px;
+            }
+
+            .code-block {
+                padding: 24px 20px;
+                font-size: 14px;
+                line-height: 1.5;
+                overflow-x: auto;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+            }
+
+            .footer-section h4 {
+                font-size: 16px;
+                margin-bottom: 16px;
+            }
+
+            footer {
+                padding: 40px 0 30px;
+            }
+        }
+
+        /* iPhone 12 Specific (390px width) */
+        @media (max-width: 390px) {
+            .hero h1 {
+                font-size: 42px;
+                letter-spacing: -1px;
+            }
+
+            .hero .subtitle {
+                font-size: 17px;
+                line-height: 1.5;
+            }
+
+            .demo-container {
+                padding: 24px 16px;
+                margin: 0 12px;
+            }
+
+            .demo-text {
+                font-size: 15px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .section-subtitle {
+                font-size: 16px;
+            }
+
+            .stats-grid {
+                gap: 24px;
+            }
+
+            .stat-number {
+                font-size: 38px;
+            }
+
+            .feature-card {
+                padding: 24px 20px;
+            }
+
+            .code-block {
+                padding: 20px 16px;
+                font-size: 13px;
+            }
+        }
+
+        /* Landscape mobile */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .hero {
+                min-height: 100vh;
+                padding: 60px 0 40px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+                margin-bottom: 16px;
+            }
+
+            .hero .subtitle {
+                font-size: 16px;
+                margin-bottom: 30px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
             }
         }
 
@@ -573,10 +773,10 @@
             <div class="container">
                 <div class="hero-content">
                     <h1 class="fade-in">Ideal Telegram</h1>
-                    <p class="subtitle fade-in">Transform text into authentic human keystrokes. Natural typing automation that feels genuinely organic and undetectable.</p>
+                    <p class="subtitle fade-in">Python-powered typing automation with realistic errors, variable speeds, and human-like timing patterns. Complete with keyboard neighbor mapping for authentic typos.</p>
                     <div class="cta-buttons fade-in">
-                        <a href="#download" class="cta-button">Get Started</a>
-                        <a href="#demo" class="cta-button secondary">Watch Demo</a>
+                        <a href="#download" class="cta-button">Download Script</a>
+                        <a href="#demo" class="cta-button secondary">See It Type</a>
                     </div>
                 </div>
             </div>
@@ -600,25 +800,25 @@
         <section class="stats">
             <div class="container">
                 <div class="section-header fade-in">
-                    <h2 class="section-title">Built for Performance</h2>
-                    <p class="section-subtitle">Trusted by developers worldwide for authentic typing automation</p>
+                    <h2 class="section-title">Script Performance</h2>
+                    <p class="section-subtitle">Real metrics from the Python typing automation engine</p>
                 </div>
                 <div class="stats-grid">
                     <div class="stat-item fade-in">
-                        <span class="stat-number">99.9%</span>
-                        <span class="stat-label">Undetectable</span>
+                        <span class="stat-number">120</span>
+                        <span class="stat-label">Max WPM</span>
                     </div>
                     <div class="stat-item fade-in">
-                        <span class="stat-number">50ms</span>
-                        <span class="stat-label">Avg Response</span>
+                        <span class="stat-number">95+</span>
+                        <span class="stat-label">Key Mappings</span>
                     </div>
                     <div class="stat-item fade-in">
-                        <span class="stat-number">10k+</span>
-                        <span class="stat-label">Downloads</span>
+                        <span class="stat-number">0.5s</span>
+                        <span class="stat-label">Start Delay</span>
                     </div>
                     <div class="stat-item fade-in">
-                        <span class="stat-number">Zero</span>
-                        <span class="stat-label">Dependencies</span>
+                        <span class="stat-number">1</span>
+                        <span class="stat-label">Python File</span>
                     </div>
                 </div>
             </div>
@@ -632,34 +832,34 @@
                 </div>
                 <div class="features-grid">
                     <div class="feature-card slide-left">
-                        <span class="feature-icon">⚡</span>
-                        <h3>Variable Speed</h3>
-                        <p>Dynamic keystroke timing with realistic variations that mirror natural typing patterns and human inconsistencies.</p>
+                        <span class="feature-icon">🎯</span>
+                        <h3>Realistic Typos</h3>
+                        <p>Advanced keyboard neighbor mapping creates authentic typing errors that get automatically corrected, just like real human mistakes.</p>
                     </div>
                     <div class="feature-card slide-right">
-                        <span class="feature-icon">🎯</span>
-                        <h3>Smart Pauses</h3>
-                        <p>Intelligent pause detection at punctuation marks, word boundaries, and natural breathing points.</p>
+                        <span class="feature-icon">⚡</span>
+                        <h3>Speed Presets</h3>
+                        <p>Choose from slow (20 WPM), medium (50 WPM), fast (80 WPM), super fast (120 WPM), or set custom typing speeds.</p>
                     </div>
                     <div class="feature-card slide-left">
                         <span class="feature-icon">🔧</span>
-                        <h3>Fully Configurable</h3>
-                        <p>Customize every aspect: speed ranges, pause durations, error simulation, and behavioral patterns.</p>
+                        <h3>Error Probability</h3>
+                        <p>Dynamic error calculation based on typing speed - faster typing naturally produces more mistakes, just like humans.</p>
                     </div>
                     <div class="feature-card slide-right">
                         <span class="feature-icon">🌐</span>
-                        <h3>Universal Compatibility</h3>
-                        <p>Works seamlessly across all platforms, applications, and input fields without requiring special permissions.</p>
+                        <h3>Keyboard Library</h3>
+                        <p>Built on Python's keyboard library for universal compatibility across all applications and operating systems.</p>
                     </div>
                     <div class="feature-card slide-left">
                         <span class="feature-icon">🛡️</span>
-                        <h3>Stealth Mode</h3>
-                        <p>Advanced algorithms ensure typing patterns are indistinguishable from genuine human input behavior.</p>
+                        <h3>Debug Mode</h3>
+                        <p>Comprehensive logging shows typed text, mistakes made, and error ratios for performance analysis and tuning.</p>
                     </div>
                     <div class="feature-card slide-right">
                         <span class="feature-icon">⚙️</span>
-                        <h3>Zero Overhead</h3>
-                        <p>Lightweight Python implementation with minimal resource usage and instant activation capabilities.</p>
+                        <h3>Simple CLI</h3>
+                        <p>Easy command-line interface with quick text input, speed selection, and instant execution - no complex setup required.</p>
                     </div>
                 </div>
             </div>
@@ -668,28 +868,33 @@
         <section class="code-section" id="download">
             <div class="container">
                 <div class="section-header fade-in">
-                    <h2 class="section-title">Simple Integration</h2>
-                    <p class="section-subtitle">Get started in seconds with our lightweight Python package</p>
+                    <h2 class="section-title">Ready to Download</h2>
+                    <p class="section-subtitle">Single Python file with zero dependencies - just download and run</p>
                 </div>
                 <div class="code-container fade-in">
                     <div class="code-header">
-                        <span class="code-title">Terminal</span>
+                        <span class="code-title">ideal_telegram.py</span>
                     </div>
                     <div class="code-block">
-<span class="code-comment"># Install via pip</span>
-<span class="code-keyword">$</span> pip install ideal-telegram
+<span class="code-comment"># Download and run the script</span>
+<span class="code-keyword">$</span> python ideal_telegram.py
 
-<span class="code-comment"># Basic usage</span>
-<span class="code-keyword">$</span> ideal-telegram <span class="code-string">"Your message here"</span>
+<span class="code-comment"># Enter your text or 'd' for default</span>
+<span class="code-string">What is the text you would like to be typed?</span>
+<span class="code-keyword">></span> Hello, world!
 
-<span class="code-comment"># Or use as a library</span>
-<span class="code-keyword">from</span> ideal_telegram <span class="code-keyword">import</span> type_text
-type_text(<span class="code-string">"Hello, world!"</span>, speed=<span class="code-string">"natural"</span>)
+<span class="code-comment"># Choose speed: s/m/f/sf or custom WPM</span>
+<span class="code-string">What is the WPM?</span>
+<span class="code-keyword">></span> m
+
+<span class="code-comment"># Script types with realistic errors and timing</span>
+<span class="code-string">Your text was successfully printed!</span>
+<span class="code-comment">debug_text=Hello, world! mistakes=2 ratio=0.15</span>
                     </div>
                 </div>
                 <div class="cta-buttons fade-in" style="margin-top: 40px;">
-                    <a href="https://github.com/yourusername/ideal-telegram" class="cta-button">View on GitHub</a>
-                    <a href="#" class="cta-button secondary">Documentation</a>
+                    <a href="https://github.com/yourusername/ideal-telegram" class="cta-button">Download Script</a>
+                    <a href="#" class="cta-button secondary">View Source</a>
                 </div>
             </div>
         </section>
@@ -759,9 +964,12 @@ type_text(<span class="code-string">"Hello, world!"</span>, speed=<span class="c
 
         // Typing animation
         const messages = [
-            "Welcome to Ideal Telegram - where automation meets authenticity.",
-            "Watch as your text transforms into natural, human-like keystrokes...",
-            "Each character typed with realistic timing and organic variations."
+            "The quick brown fox jumps over the lazy dog",
+            "python ideal_telegram.py",
+            "What is the text you would like to be typed? > Hello World!",
+            "What is the WPM? > m",
+            "Typing with realistic errors and natural timing...",
+            "Your text was successfully printed! mistakes=3 ratio=0.12"
         ];
 
         let currentMessage = 0;
