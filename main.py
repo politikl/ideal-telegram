@@ -3,6 +3,9 @@ import random
 import time
 import sys
 
+class WPMInvalid(Exception):
+    pass
+
 default_text = "The quick brown fox jumps over the lazy dog"
 text = input("What is the text you would like to be typed (typing d will type the default text)? \n")
 
@@ -13,24 +16,34 @@ if text == "q":
 else:
     pass
 
-wpm = input("What is the WPM you would like this to be type at (or you can type s for a slow speed, m for a medium speed, f for a fast speed, and sf for a super fast speed)?\n")
-
-if wpm == "s":
-    wpm = 20
-if wpm == "m":
-    wpm = 50
-if wpm == "f":
-    wpm = 80
-if wpm == "sf":
-    wpm = 120
-else:
-    wpm = int(wpm)
+while True:
+    wpm = input("What is the WPM you would like this to be typed at "
+                "(or s=slow, m=medium, f=fast, sf=super fast)?\n")
+    if wpm == "s":
+        wpm = 20
+        break
+    elif wpm == "m":
+        wpm = 50
+        break
+    elif wpm == "f":
+        wpm = 80
+        break
+    elif wpm == "sf":
+        wpm = 120
+        break
+    try:
+        wpm = int(wpm)
+        if wpm <= 0:
+            raise WPMInvalid("WPM must be greater than 0.")
+        break
+    except ValueError:
+        print("Invalid input: please enter a number or one of s/m/f/sf.")
 
 default_robot_speed = 19
 
 speed = wpm/default_robot_speed
 
-chance_of_error = (speed/20)**1.3
+chance_of_error = ((speed/20)**1.3)/1.5
 
 keyboard_neighbors = {
     # Letters
@@ -108,6 +121,8 @@ keyboard_neighbors = {
     "?": ["/"]
 }
 
+start = time.time()
+
 index = 0
 debug_text = ""
 mistakes = 0
@@ -140,6 +155,9 @@ while index < len(text):
         keyboard.write(text[index])
         debug_text += text[index]
         index += 1
+end = time.time()
+words = len(text.split())
+real_wpm = 60*words/(end-start)
 time.sleep(0.01)
 print("\nYour text was successfully printed!")
-print(f"debug_text={debug_text} mistakes={mistakes} ratio={mistakes/len(text)}")
+print(f"debug_text={debug_text}, mistakes={mistakes}, ratio={mistakes/len(text)}, time took={end-start} realwpm = {real_wpm}")
