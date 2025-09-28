@@ -2,19 +2,74 @@ import keyboard
 import random
 import time
 import sys
+import os
 
 class WPMInvalid(Exception):
     pass
 
-default_text = "The quick brown fox jumps over the lazy dog"
-text = input("What is the text you would like to be typed (typing d will type the default text)? \n")
+def read_file_content(file_input):
+    """Try to read content from file, handling both full paths and filenames"""
+    try:
+        print(f"Debug: Current working directory: {os.getcwd()}")
+        print(f"Debug: Looking for file: {file_input}")
+        print(f"Debug: Files in current directory: {os.listdir('.')}")
+        
+        if os.path.exists(file_input):
+            print(f"Debug: Found file at: {file_input}")
+            with open(file_input, 'r', encoding='utf-8') as file:
+                return file.read().strip()
+        else:
+            print(f"Debug: File not found at: {file_input}")
+        
+        extensions = ['.txt', '.md', '.py', '.js', '.html', '.css', '.json']
+        for ext in extensions:
+            test_path = file_input + ext
+            print(f"Debug: Trying: {test_path}")
+            if os.path.exists(test_path):
+                print(f"Debug: Found file at: {test_path}")
+                with open(test_path, 'r', encoding='utf-8') as file:
+                    return file.read().strip()
+        print("Debug: No file found with any extension")
+        return None
+    except Exception as e:
+        print(f"Error reading file: {e}")
+        return None
 
-if text == "d":
-    text = default_text
-if text == "q":
-    sys.exit()
-else:
-    pass
+default_text = "The quick brown fox jumps over the lazy dog"
+
+# Choose input method
+while True:
+    print("\nChoose input method:")
+    print("1. Type text directly")
+    print("2. Load text from file")
+    print("3. Use default text")
+    print("4. Quit")
+    
+    choice = input("Enter your choice (1-4): ").strip()
+    
+    if choice == "1":
+        text = input("Enter the text you want to type: ")
+        break
+    elif choice == "2":
+        file_input = input("Enter file path or filename: ")
+        file_content = read_file_content(file_input)
+        if file_content is not None:
+            text = file_content
+            print(f"Successfully loaded text from file ({len(text)} characters)")
+            if len(text) > 100:
+                print(f"Preview: {text[:100]}...")
+            break
+        else:
+            print("File not found or could not be read. Please try again.")
+            continue
+    elif choice == "3":
+        text = default_text
+        print("Using default text: " + default_text)
+        break
+    elif choice == "4":
+        sys.exit()
+    else:
+        print("Invalid choice. Please enter 1, 2, 3, or 4.")
 
 while True:
     wpm = input("What is the WPM you would like this to be typed at "
@@ -127,7 +182,7 @@ index = 0
 debug_text = ""
 mistakes = 0
 
-time.sleep(0.5)
+time.sleep(3)
 
 if len(text) == 1:
     keyboard.write(text)
