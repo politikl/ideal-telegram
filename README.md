@@ -49,3 +49,6 @@ This tool is lightweight, customizable, and designed for scenarios where human-l
    ```bash
    git clone https://github.com/yourusername/ideal-telegram.git
    cd ideal-telegram
+2. Run the python file:
+   ```bash
+   python3 ideal-telegram.py
