@@ -47,7 +47,7 @@ This tool is lightweight, customizable, and designed for scenarios where human-l
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/ideal-telegram.git
+   git clone https://github.com/politikl/ideal-telegram.git
    cd ideal-telegram
 2. Run the python file:
    ```bash
